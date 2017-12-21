@@ -48,8 +48,9 @@ class TadpolesController < ApplicationController
   end
 
   def metamorphosize
-   @frog = Frog.new(name: @tadpole.name, color: @tadpole.color)
+   @frog = Frog.new(name: @tadpole.name, color: @tadpole.color, pond: @tadpole.pond)
     if @frog.save
+      @tadpole.destroy
       redirect_to frog_path(@frog)
     else
       redirect_to '/tadpoles/:id/metamorphose', alert: "Unable to become frog"
