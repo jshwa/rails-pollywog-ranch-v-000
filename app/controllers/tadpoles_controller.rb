@@ -2,7 +2,7 @@ class TadpolesController < ApplicationController
   before_action :set_tadpole, only: [:show, :edit, :update, :destroy, :metamorphosize]
 
   # add your metamorphosize action here
-  
+
   def index
     @tadpoles = Tadpole.all
   end
@@ -47,7 +47,7 @@ class TadpolesController < ApplicationController
     end
   end
 
-  def metamorphose  
+  def metamorphose
   end
 
   def metamorphosize
@@ -55,7 +55,9 @@ class TadpolesController < ApplicationController
     @frog = Frog.new(@tadpole.attributes)
     if @frog.save
       redirect_to frog_path(@frog)
-    
+    else
+      redirect_to '/tadpoles/:id/metamorphose', alert: "Unable to become frog"
+    end
   end
 
   private
