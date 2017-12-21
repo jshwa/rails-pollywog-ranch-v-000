@@ -48,6 +48,7 @@ class TadpolesController < ApplicationController
   end
 
   def metamorphosize
+    raise @tadpole.attributes.inspect
     @frog = Frog.new(@tadpole.attributes)
     if @frog.save
       redirect_to frog_path(@frog)
