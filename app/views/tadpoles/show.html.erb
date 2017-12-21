@@ -17,6 +17,7 @@
   <img src="http://<%= @tadpole.color %>-tadpole.jpg.to/" alt="Tadpole Picture" width="300">
 </div>
 
+<%= link_to "WTF", metamorphose_path %>
 <%= form_for @tadpole, url:'/tadpoles/:id/metamorphose' do |f|%>
   <%= f.submit "Become a frog" %>
 <% end %>
